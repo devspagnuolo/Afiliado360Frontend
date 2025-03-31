@@ -9,22 +9,29 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErro('');
+  e.preventDefault();
+  setErro('');
 
-    try {
-      const response = await api.post('/login', {
-        email,
-        password: senha,
-      });
+  console.log('🔍 Enviando login para API...');
 
-      localStorage.setItem('token', response.data.token);
-      navigate('/products');
-    } catch (err: any) {
-  console.error('Erro ao logar:', err);
-  setErro(err.response?.data?.error || 'Erro ao fazer login');
-}
-  };
+  try {
+    const response = await api.post('/login', {
+      email,
+      password: senha,
+    });
+
+    console.log('✅ Resposta da API:', response.data);
+
+    localStorage.setItem('token', response.data.token);
+    console.log('📦 Token salvo no localStorage.');
+
+    navigate('/products');
+    console.log('➡️ Redirecionando para /products');
+  } catch (err: any) {
+    console.error('❌ Erro ao logar:', err);
+    setErro(err.response?.data?.error || 'Erro ao fazer login');
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
