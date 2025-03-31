@@ -21,8 +21,9 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
       navigate('/products');
     } catch (err: any) {
-      setErro(err.response?.data?.error || 'Erro ao fazer login');
-    }
+  console.error('Erro ao logar:', err);
+  setErro(err.response?.data?.error || 'Erro ao fazer login');
+}
   };
 
   return (
