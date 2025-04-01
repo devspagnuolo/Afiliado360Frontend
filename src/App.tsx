@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import NewProduct from './pages/NewProduct';
 import ProtectedRoute from './components/ProtectedRoute';
+import HotmartTracker from './pages/HotmartTracker';
 
 function App() {
   return (
@@ -23,6 +24,16 @@ function App() {
           <ProtectedRoute>
             <NewProduct />
           </ProtectedRoute>
+
+          <Route
+  path="/rastreador"
+  element={
+    <ProtectedRoute>
+      <HotmartTracker />
+    </ProtectedRoute>
+  }
+/>
+      
         }
       />
     </Routes>
