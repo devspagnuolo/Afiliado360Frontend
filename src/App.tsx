@@ -4,6 +4,7 @@ import Products from './pages/Products';
 import NewProduct from './pages/NewProduct';
 import HotmartTracker from './pages/HotmartTracker';
 import ProtectedRoute from './components/ProtectedRoute';
+import Favorites from './pages/Favorites';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
       <Route path="/products/new" element={<ProtectedRoute><NewProduct /></ProtectedRoute>} />
       <Route path="/rastreador" element={<ProtectedRoute><HotmartTracker /></ProtectedRoute>} />
+      <Route path="/favoritos" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
     </Routes>
   );
 }
