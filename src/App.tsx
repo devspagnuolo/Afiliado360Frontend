@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import Products from './pages/Products';
 import Login from './pages/Login';
+import Products from './pages/Products';
+import NewProduct from './pages/NewProduct';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -13,6 +14,14 @@ function App() {
         element={
           <ProtectedRoute>
             <Products />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/products/new"
+        element={
+          <ProtectedRoute>
+            <NewProduct />
           </ProtectedRoute>
         }
       />
